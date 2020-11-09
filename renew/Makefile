@@ -27,14 +27,13 @@ TARGET := \
 
 .PHONY: clean all format
 
-format:
-	clang-format -i *.cpp *.c
-
 all:
 	@for tgt in $(TARGET) ; do \
 		$(MAKE) $$tgt ; \
 	done
 
+format:
+	clang-format -i *.cpp *.c
 
 clean:
 	$(RM) $(TARGET) *.o *~
