@@ -46,11 +46,13 @@ int main(void) {
             /* Metropolis test */
             /*******************/
             double metropolis = (double)rand() / RAND_MAX;
-            if (exp(action_init - action_fin) > metropolis) /* accept */
+            if (exp(action_init - action_fin) > metropolis) {
+                /* accept */
                 naccept[ibeta] = naccept[ibeta] + 1;
-            else
+            } else {
                 /* reject */
                 x[ibeta] = backup_x;
+            }
         }
         for (int ibeta = 0; ibeta < nbeta - 1; ibeta++) {
             double action_init = calc_f(x[ibeta]) * beta[ibeta] + calc_f(x[ibeta + 1]) * beta[ibeta + 1];

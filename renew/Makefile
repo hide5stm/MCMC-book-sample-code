@@ -1,8 +1,8 @@
 CC := gcc
-CFLAGS := -g -O2 -Wall -Wextra -lm
+CFLAGS := -g -O3 -Wall -Wextra -lm
 
 CPP := g++
-CPPFLAGS := -g -O2 -Wall -Wextra -lm
+CPPFLAGS := -g -O3 -Wall -Wextra -lm
 
 TARGET := \
 	Bayse_coin_toss_metropolis \

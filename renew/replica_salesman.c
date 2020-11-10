@@ -63,6 +63,10 @@ int main(void) {
         double read1, read2;
         int read_ordering;
         input_config = fopen("input_config.txt", "r");
+        if (!input_config) {
+            perror("input_config.txt");
+            exit(1);
+        }
         for (int icity = 0; icity < ncity; icity++) {
             fscanf(input_config, "%lf", &read1);
             fscanf(input_config, "%lf", &read2);
@@ -75,7 +79,7 @@ int main(void) {
                 ordering[ibeta][icity] = read_ordering;
             }
         }
-
+        fclose(input_config);
     } else if (ninit == 2) {
         for (int icity = 0; icity < ncity; icity++) {
             x[0][icity] = (double)rand() / RAND_MAX;
